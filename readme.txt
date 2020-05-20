@@ -1,3 +1,12 @@
+######################
+#Reference
+##########################
+
+https://blog.marcosbarbero.com/centralized-authorization-jwt-spring-boot2/
+
+https://github.com/marcosbarbero/spring-boot2-oauth2-jwt/tree/master/oauth2-jwt-server
+
+
 ########################
 #To generate certs and keys
 ######################
