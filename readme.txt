@@ -1,4 +1,6 @@
-To generate certs and keys
+########################
+#To generate certs and keys
+######################
 
 $openssl genrsa -des3 -passout pass:password -out server.pass.key 2048
 Generating RSA private key, 2048 bit long modulus (2 primes)
@@ -81,4 +83,30 @@ hQIDAQAB
 
 
 
+#######################
+#Endpoints
+######################
 
+curl --location --request POST 'localhost:9010/oauth/token' \
+--header 'Authorization: Basic Y2xpZW50SWQ6c2VjcmV0' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'username=user' \
+--data-urlencode 'password=pass'
+
+
+
+POST /oauth/token HTTP/1.1
+Host: localhost:9010
+Authorization: Basic Y2xpZW50SWQ6c2VjcmV0
+Content-Type: application/x-www-form-urlencoded
+grant_type=password&username=user&password=pass
+
+
+POST call to localhost:9010/oauth/token to generate the token
+Basic Auth with clientId:secret
+url-Body:
+grant_type=password
+username=user
+password=pass
+scope=<optional>
