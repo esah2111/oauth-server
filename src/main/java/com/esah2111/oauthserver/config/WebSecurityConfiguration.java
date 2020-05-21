@@ -3,6 +3,7 @@ package com.esah2111.oauthserver.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,6 +23,24 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public WebSecurityConfiguration(final DataSource dataSource) {
         this.dataSource = dataSource;
     }
+    
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.requestMatchers()
+//          .antMatchers("/login", "/oauth/authorize")
+//          .and()
+//          .authorizeRequests()
+//          .anyRequest().authenticated()
+//          .and()
+//          .formLogin().permitAll();
+//        
+////        http.antMatcher("/**")
+////		.authorizeRequests()
+////			.antMatchers("/login", "/oauth/authorize")
+////			.permitAll()
+////			.anyRequest()
+////			.authenticated();
+//    }
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
